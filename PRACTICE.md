@@ -116,9 +116,12 @@ the future, so anyone following the project can see what's coming.
 ## Change records
 
 - **A planned change keeps a record** in `docs/changes/`: opened when
-  work starts on a roadmap item or a `TODO.md` task with steps, named for
-  that day (`2026-10-26-short-title.md`), holding the plan word for word.
-  The plan isn't edited once work starts.
+  work starts on a roadmap item or a `TODO.md` task with steps, holding
+  the plan word for word. The plan isn't edited once work starts.
+- **A record is named for the day work started,** then, for a roadmap
+  item, "r" and its number: `2026-10-26-r7-short-title.md`. A search for
+  `r7` finds it, where a bare 7 would match every date and figure. A
+  record for a `TODO.md` task has no number: `2026-10-26-short-title.md`.
 - **What happened is added as the work goes:** the outcome against Done
   when, changes from the plan and why, measurements, what was tried and
   reverted, and what's left.
