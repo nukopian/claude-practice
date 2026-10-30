@@ -107,7 +107,9 @@ unfinished list.
   **Size:** line, as `**Size:** M (3)`. An item bigger than L is broken
   into items that aren't, each with a number of its own and saying what
   it was split from; the item split is retired, its number named in the
-  commit, as a dropped one's is. The roadmap's opening gives the scale.
+  commit, as a dropped one's is. Items that can't be done one without
+  another say so in a **Moves with:** line, and move between groups
+  together. The roadmap's opening gives the scale.
 - **When Iain mentions an idea in passing,** offer in one line to add it
   ("add as idea 8?"), and add it in a `docs:` commit.
 - **It's kept current:** an item leaves when it ships, in the commit that
