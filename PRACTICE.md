@@ -102,6 +102,12 @@ unfinished list.
   added, which the roadmap's opening gives ("Next number: 8"), kept as it
   moves between groups and never used again. A shipped item's CHANGELOG
   line ends "(roadmap 7)".
+- **Every item has a size,** a guess at how much work it is, as a
+  T-shirt size and its story points: XS 1, S 2, M 3, L 5, given in a
+  **Size:** line, as `**Size:** M (3)`. An item bigger than L is broken
+  into items that aren't, each with a number of its own and saying what
+  it was split from; the item split is retired, its number named in the
+  commit, as a dropped one's is. The roadmap's opening gives the scale.
 - **When Iain mentions an idea in passing,** offer in one line to add it
   ("add as idea 8?"), and add it in a `docs:` commit.
 - **It's kept current:** an item leaves when it ships, in the commit that
