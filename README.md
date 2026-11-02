@@ -9,5 +9,9 @@ Claude Code, such as [grammar](https://github.com/nukopian/grammar),
 change records, branches and releases, wash-ups, documents and secrets.
 Each project's `CLAUDE.md` imports it from a working copy beside the
 project's own, and adds the rules that are the project's alone. The why
-behind them is Iain's essay,
-[The process](https://github.com/nukopian/scalar/blob/main/docs/PROCESS.md).
+behind them is Iain's essay, [The process](thoughts/PROCESS.md), on how
+scalar and grammar were made. [thoughts/](thoughts/) holds it, and any
+essays that follow.
+
+To read the documents offline, `scripts/readme-pdf.sh` builds a PDF of
+each. It needs pandoc and Prince.

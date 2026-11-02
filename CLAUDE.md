@@ -16,6 +16,10 @@ kept, and differs from the projects that import it:
 - **No project's own detail here:** test names, documents and baselines
   stay in the project. Nothing private here either: that goes in
   `../claude-practice-private`.
-- **Read `PRACTICE.md` as a PDF after changing it:**
-  `../grammar/scripts/readme-pdf.sh PRACTICE.md` with an output path
-  outside this repository, until it has a script of its own.
+- **`thoughts/` holds Iain's essays,** such as
+  [The process](thoughts/PROCESS.md), the why behind the practice. They
+  are his words: change them only when he asks. Projects link to them
+  here rather than keeping copies.
+- **Read a document as a PDF after changing it:**
+  `scripts/readme-pdf.sh PRACTICE.md`, or with no arguments for every
+  document. The PDFs are git-ignored.

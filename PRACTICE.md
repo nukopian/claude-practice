@@ -6,7 +6,7 @@ its own rules on top: what the project is for, its tests, its documents,
 and any exception to what's here. Where the two differ, the project's
 rule wins. Each rule comes with the reason for it, and the why behind
 them all is Iain's essay,
-[The process](https://github.com/nukopian/scalar/blob/main/docs/PROCESS.md).
+[The process](thoughts/PROCESS.md).
 
 ## Using it
 
