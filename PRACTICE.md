@@ -116,6 +116,12 @@ unfinished list.
   added and N as a serial (7 added in 2026 is 2026-0007), so the
   history's "roadmap 7" still reads plainly, and its serials go on from
   the highest.
+- **Iain may name an item by its serial alone,** as "26" or "task 26":
+  read it as this year's, 2026-0026 in 2026, in the project at hand.
+  Where that could mean something else, ask before acting: no such item
+  this year, an item from last year that fits better (early in a year),
+  a serial that names an item in another repository being discussed, or
+  a `TODO.md` task's record sharing the sequence.
 - **Every item has a size,** a guess at how much work it is, as a
   T-shirt size and its story points: XS 1, S 2, M 3, L 5, given in a
   **Size:** line, as `**Size:** M (3)`. An item bigger than L is split
