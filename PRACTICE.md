@@ -95,23 +95,48 @@ unfinished list.
   only when one ships or goes back to Next. **Next** is decided but not
   started (what, why, done when). **Later** is meant to be done but not
   yet planned, in a line or two. **Ideas** might be done, or never: a
-  numbered heading, the date added, a line or two, no Serves line, newest
-  last. Most useful first in the others.
-- **Every item has a number** in its heading (`### 7. Title`, never a
-  Markdown numbered list, which renumbers itself): the next one when it's
-  added, which the roadmap's opening gives ("Next number: 8"), kept as it
-  moves between groups and never used again. A shipped item's CHANGELOG
-  line ends "(roadmap 7)".
+  heading with its id, an **Added:** date and **Size:** line, a line or
+  two, no Serves line, newest last. Most useful first in the others,
+  which the **Serves:** lines help to judge.
+- **Every item has an id, its year and a serial: `2026-0007`,** in its
+  heading (`### 2026-0007. Title`, never a Markdown numbered list, which
+  renumbers itself). The year is the year it was added, and the serial
+  is four digits, from 0001, starting again each year. It's given when
+  the item is added, kept as it moves between groups, and never used
+  again. The roadmap's opening gives the last id allocated ("Last id:
+  2026-0007"): to allocate one, take this year, and add one to the last
+  serial if its year is this year, or start at 0001 if not, and change
+  that line in the commit that adds the item.
+- **The id names the item everywhere:** its heading; its record,
+  `docs/changes/2026-0007-short-title.md`; its CHANGELOG line, which
+  ends "(roadmap 2026-0007)"; commit messages; and a branch for it, such
+  as `experiment/2026-0007-short-title`. Another repository's id goes
+  with that repository's name, as "scalar 2026-0001". A project that
+  numbered its items 1, 2, 3 converts each number N to the year it was
+  added and N as a serial (7 added in 2026 is 2026-0007), so the
+  history's "roadmap 7" still reads plainly, and its serials go on from
+  the highest.
 - **Every item has a size,** a guess at how much work it is, as a
   T-shirt size and its story points: XS 1, S 2, M 3, L 5, given in a
-  **Size:** line, as `**Size:** M (3)`. An item bigger than L is broken
-  into items that aren't, each with a number of its own and saying what
-  it was split from; the item split is retired, its number named in the
-  commit, as a dropped one's is. Items that can't be done one without
-  another say so in a **Moves with:** line, and move between groups
-  together. The roadmap's opening gives the scale.
+  **Size:** line, as `**Size:** M (3)`. An item bigger than L is split
+  into items that aren't, each with an id of its own and a **Split
+  from:** line; the item split is retired, its id named in the commit,
+  as a dropped one's is. The roadmap's opening gives the scale.
+- **An item that can't be done before another says so,** in a
+  **Depends on:** line naming each id. It's never in a group ahead of an
+  item it depends on: moving it forward moves those too, so a chain of
+  them moves together, and they ship first or with it.
+- **An item's questions are settled before work on it starts.** They're
+  discussed in the chat, and kept in its record's Decisions, numbered
+  D1, D2 and on: unchecked while open, and checked once settled, with
+  the answer, the date and why. A **Decisions:** line under the record's
+  status sums them up, each settled or open in a few words, so its state
+  shows at a glance. An item moves to Now only once every decision is
+  checked, or Iain agrees to move one still open to another item or
+  task, which the record says. A decision that needs no work of its own
+  is kept in the commit message that records it.
 - **When Iain mentions an idea in passing,** offer in one line to add it
-  ("add as idea 8?"), and add it in a `docs:` commit.
+  ("add as idea 2026-0008?"), and add it in a `docs:` commit.
 - **It's kept current:** an item leaves when it ships, in the commit that
   adds it to the CHANGELOG, and a change that ships, starts or drops a
   feature updates it in the same commit.
@@ -119,28 +144,32 @@ unfinished list.
   documents. What's kept out of the README is kept out of it too.
 
 Why: the CHANGELOG is the past, the README the present, and the roadmap
-the future, so anyone following the project can see what's coming.
+the future, so anyone following the project can see what's coming; and
+an id that sorts and never changes can be searched for years later.
 
 ## Change records
 
-- **A planned change keeps a record** in `docs/changes/`: opened when
-  work starts on a roadmap item or a `TODO.md` task with steps, holding
-  the plan word for word. The plan isn't edited once work starts.
-- **A record is named for the day work started,** then, for a roadmap
-  item, "r" and its number: `2026-10-26-r7-short-title.md`. A search for
-  `r7` finds it, where a bare 7 would match every date and figure. A
-  record for a `TODO.md` task has no number: `2026-10-26-short-title.md`.
+- **A planned change keeps a record** in `docs/changes/`, named for its
+  id and the change: `2026-0007-short-title.md`. A roadmap item's record
+  is opened when it first has a question to settle, or when work on it
+  starts. A `TODO.md` task with steps gets a record too, taking the next
+  id from the roadmap's opening, in the same sequence, though the task
+  never appears there.
+- **The plan is written in it when work starts, and isn't edited
+  after.** Its **Started:** line gives the date.
 - **What happened is added as the work goes:** the outcome against Done
   when, changes from the plan and why, measurements, what was tried and
-  reverted, and what's left.
+  reverted, and what's left. Experiments go in it too, with what they
+  showed, as they won't survive anywhere else.
 - **It's finished in the commit that ships or drops the change.** Its
-  status is in progress, shipped, unreleased, shipped in vX.Y.Z, or
+  status is open, in progress, shipped, unreleased, shipped in vX.Y.Z, or
   dropped; a dropped change keeps its record, saying why. The CHANGELOG
-  line links it: "(roadmap 7; [record](docs/changes/….md))".
+  line links it: "(roadmap 2026-0007; [record](docs/changes/….md))".
 - Small fixes need none. `docs/changes/README.md` has the template.
 
-Why: the plan and its outcome sit side by side, so a reader can see what
-was predicted and what was found.
+Why: the plan and its outcome sit side by side, with the decisions
+that shaped it, so a reader can see what was predicted and what was
+found.
 
 ## Branches, commits and releases
 
@@ -179,9 +208,9 @@ was predicted and what was found.
   before each fix, and show that nothing else moved. The most egregious
   findings go into the CHANGELOG, each with what it would have broken.
   The wash-up also checks the roadmap and the README's account of where
-  the project stands, and prunes Ideas: list them by number, and Iain
-  keeps, promotes (number kept, Serves added) or drops each (deleted, its
-  number named in the commit).
+  the project stands, and prunes Ideas: list them by id, and Iain
+  keeps, promotes (id kept, Serves added) or drops each (deleted, its
+  id named in the commit).
 - **Dogfooding.** Use each library in real programs, and note where it
   fought you. Friction that blocks the work is fixed in the library's
   working copy, left uncommitted, with a task in its `TODO.md`; friction
